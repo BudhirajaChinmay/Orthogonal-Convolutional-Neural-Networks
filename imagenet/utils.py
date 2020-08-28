@@ -232,7 +232,8 @@ def get_training_dataloader(mean, std, batch_size=16, num_workers=2, shuffle=Tru
     ])
     #cifar100_training = CIFAR100Train(path, transform=transform_train)
     
-    cifar100_training = torchvision.datasets.CIFAR100(root='./data', train=True, download=True, transform=transform_train)
+    # cifar100_training = torchvision.datasets.CIFAR100(root='./data', train=True, download=True, transform=transform_train)
+    cifar100_training = torchvision.datasets.CIFAR100(root = './data', train = true, download = True)
     if perc < 1.0:
         idx = np.load("misc/cifar100_"+str(perc)+".npy")
         cifar100_training = torch.utils.data.Subset(cifar100_training, idx)
@@ -263,7 +264,9 @@ def get_training_dataloaderIMAGENET(mean, std, batch_size=16, num_workers=2, shu
     ])
     #cifar100_training = CIFAR100Train(path, transform=transform_train)
     
-    cifar100_training = torchvision.datasets.ImageNet(root='/home/peterwg/dataset/ILSVRC2012', split='train', download=False, transform=transform_train)
+    # cifar100_training = torchvision.datasets.ImageNet(root='/home/peterwg/dataset/ILSVRC2012', split='train', download=False, transform=transform_train)
+    cifar100_training = torchvision.datasets.ImageNet(root='/home/peterwg/dataset/ILSVRC2012', split='train', download=False)
+    
     st()
     if perc < 1.0:
         idx = np.load("misc/cifar100_"+str(perc)+".npy")
